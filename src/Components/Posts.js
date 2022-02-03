@@ -4,7 +4,8 @@ const Posts = () => {
 
     const Posts = useEffect(() => {
         const getPosts = async () => {
-            const postFromServer = await fetchPosts();
+            const postsFromServer = await fetchPosts();
+            
             console.log(postsFromServer);
         }
 
@@ -19,7 +20,7 @@ const Posts = () => {
     }
 
     const addPost = async (postId) => {
-        const result = await fetch(`https://localhost:44322/api/users/${postId}`);
+        const result = await fetch(`https://localhost:44322/api/posts/${postId}`);
         const data = await result.json();
 
         return data;
@@ -27,14 +28,14 @@ const Posts = () => {
 
 
     const deletePost = async (postId) => {
-        const result = await fetch(`https://localhost:44322/api/users/${postId}`, {
+        const result = await fetch(`https://localhost:44322/api/posts/${postId}`, {
             method: 'DELETE',
         });
 
     }
     return (
         <>
-
+            
         </>
     )
 };
